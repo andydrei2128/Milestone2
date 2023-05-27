@@ -265,7 +265,7 @@ public class Payroll
 		    } else if (grosspay >= 23000 && grosspay <= 40000) { 
 			phoneallowance = 800;
 					 
-			} else if (grosspay >= 23000 && grosspay <= 80000) {
+			} else if (grosspay >= 40000 && grosspay <= 80000) {
 			phoneallowance = 1000;
 			} else {
 			
