@@ -1,4 +1,3 @@
-
 import java.util.*;
  
 public class Payroll 
@@ -70,7 +69,7 @@ public class Payroll
         System.out.println(" SSS deduction: ");
         data.setSss(Double.parseDouble(input.next()));
  
-        double grossAmount = data.grossPay(data.getHourlyPayRate(), data.getHoursWorked());
+        double grossAmount = data.salary(data.getHourlyPayRate(), data.getHoursWorked());
         
  
         System.out.println("Name: " + data.getName());
@@ -98,40 +97,43 @@ public class Payroll
       
      
         double Grosswithdeduction = grossAmount - data.philhealth - data.pagibig - data.sss;
-        double Grosspay = Grosswithdeduction  + data.ricesubsidyallowance + data.phoneallowance + data.clothingallowance;
-        double Netpay = Grosspay - data.tax;
+        double grosspay = Grosswithdeduction = grossAmount - data.philhealth - data.pagibig - data.sss;
+        double Netpay = grosspay + data.ricesubsidyallowance + data.phoneallowance + data.clothingallowance;
         
         
-       
+        System.out.println("----------------------------");
         System.out.println("DEDUCTIONS");
         System.out.println("Philhealth:" + data.philhealth);
         System.out.println("Pagibig: " + data.pagibig);
-	System.out.println("SSS Deduction: " + data.sss);
+		System.out.println("SSS Deduction: " + data.sss);
         System.out.println("-----------------------------");
         System.out.println("TOTAL GROSSPAY");
-        System.out.println("Rice Subsidy Allowance:" + data.ricesubsidyallowance);
-        System.out.println("Phone Allowance:" + data.phoneallowance);
-        System.out.println("Clothing Allowance:" + data.clothingallowance);
-        System.out.println("Grosspay: " + Grosspay);
-        
+       
+       
         System.out.println("-----------------------------");
-        System.out.println("NETPAY");
-	System.out.println("Tax Withholding : " + data.tax);
-	System.out.println("Netpay: " + Netpay);
-	
-        
-	System.out.println("Do you want to continue? [Y | N]; ");
-	choice = strScanner.nextLine().charAt(0); 
+        System.out.println("TAX");
+        System.out.println("Tax : " + (data.tax + data.tax));
+		
+        System.out.println("Rice Subsidy Allowance:" + data.ricesubsidyallowance);
+	System.out.println("Phone Allowance:" + data.phoneallowance);
+	System.out.println("Clothing Allowance:" + data.clothingallowance);
+	System.out.println("Grosspay: " + (grosspay - data.tax));
+	System.out.println("-----------------------------");
+	System.out.println("NETPAY");
+        System.out.println("Netpay: " + Netpay);
+
+        System.out.println("Do you want to continue? [Y | N]; ");
+        choice = strScanner.nextLine().charAt(0); 
 			
 			
 		}
     }
     }
+		
+===========================================================================
     
-    =============================================================================================
     
-    
-    public class PayrollCalc 
+public class PayrollCalc 
 {
    
 	
@@ -187,10 +189,10 @@ public class Payroll
         
         
      
- public double grossPay(double hourlyRate, double hrsWorked)
+ public double salary(double hourlyRate, double hrsWorked)
  {
-        double grossPay = (hourlyRate * hrsWorked);
-        return grossPay;
+        double salary = (hourlyRate * hrsWorked);
+        return salary;
  }
  
  public double grosspay(double dailyworked, double dailyhourworked)
@@ -265,7 +267,7 @@ public class Payroll
 		    } else if (grosspay >= 23000 && grosspay <= 40000) { 
 			phoneallowance = 800;
 					 
-			} else if (grosspay >= 40000 && grosspay <= 80000) {
+			} else if (grosspay >= 23000 && grosspay <= 80000) {
 			phoneallowance = 1000;
 			} else {
 			
@@ -283,7 +285,7 @@ public class Payroll
 			clothingallowance = 500;
 			} else if (grosspay >= 23000 && grosspay <= 40000) { 
 			clothingallowance = 800;
-			} else if (grosspay >= 23000 && grosspay <= 80000) {
+			} else if (grosspay >= 40000 && grosspay <= 80000) {
 		     clothingallowance= 1000;
 			} else {
 		    
@@ -299,11 +301,12 @@ public double tax;
 	 {
 	 {
 		
-		} if (Grosspay <= 20832)
-		tax = 0;
-	        else if(Grosspay >= 33333) 
-		tax = 0.20 * Grosspay;
-		Grosspay = Grosspay - 0;
+			} if (Grosspay <= 20832) 
+				tax = (0.10 * Grosspay);
+	          else if(Grosspay >= 33333) 
+				tax = 0.20 * Grosspay;
+	 
+		    	
 			
 			
     }
@@ -487,6 +490,13 @@ public double tax;
    }	
    }
    }
+
+
+	
+		
+
+	
+	
 
 
 	
